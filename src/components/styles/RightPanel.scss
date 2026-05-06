@@ -1,0 +1,124 @@
+/* src/components/styles/RightPanel.scss */
+.right-panel {
+  flex: 1;
+  background: rgba(245, 248, 252, 0.5);
+  backdrop-filter: blur(4px);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto 1fr auto;
+  gap: 16px;
+  padding: 20px 20px 15px 20px;
+  overflow: hidden;
+}
+
+/* 搜索区域 - 固定高度，确保位置不变 */
+.search-section {
+  grid-column: 1 / 3;
+  grid-row: 1 / 2;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  height: 60px; /* 固定高度 */
+  min-height: 60px;
+  padding-bottom: 0;
+}
+
+.search-wrapper {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.nsfw-wrapper {
+  flex-shrink: 0;
+  width: 100px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.col-sub-buttons {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-width: 0;
+}
+
+.col-selected {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-width: 0;
+}
+
+.action-bar {
+  grid-column: 1 / 3;
+  grid-row: 3 / 4;
+}
+
+/* 响应式布局 */
+@media (max-width: 1000px) {
+  .right-panel {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto;
+    gap: 12px;
+  }
+
+  .search-section {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    flex-direction: row; /* 保持水平排列 */
+    height: 50px;
+    min-height: 50px;
+    gap: 8px;
+  }
+
+  .search-wrapper {
+    width: auto;
+    flex: 1;
+  }
+
+  .nsfw-wrapper {
+    width: 90px;
+  }
+
+  .col-sub-buttons {
+    grid-column: 1/2;
+    grid-row: 2/3;
+  }
+
+  .col-selected {
+    grid-column: 1/2;
+    grid-row: 3/4;
+  }
+
+  .action-bar {
+    grid-column: 1/2;
+    grid-row: 4/5;
+  }
+}
+
+/* 小屏幕适配 */
+@media (max-width: 480px) {
+  .search-section {
+    flex-direction: column; /* 极窄屏幕时改为垂直排列 */
+    height: auto;
+    min-height: auto;
+    gap: 8px;
+  }
+
+  .search-wrapper {
+    width: 100%;
+  }
+
+  .nsfw-wrapper {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}

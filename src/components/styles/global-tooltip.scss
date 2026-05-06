@@ -1,0 +1,65 @@
+/* src/components/styles/global-tooltip.scss */
+.english-tooltip {
+  position: absolute;
+  background: rgba(44, 62, 80, 0.98);
+  backdrop-filter: blur(8px);
+  color: white;
+  padding: 8px 18px;
+  border-radius: 30px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  z-index: 9999;
+  pointer-events: none;
+  white-space: nowrap;
+  max-width: 350px;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  .tooltip-label {
+    color: #f4c542;
+    font-weight: 600;
+    margin-right: 4px;
+    font-size: 0.9rem;
+    opacity: 0.9;
+  }
+
+  .tooltip-text {
+    font-family: "Courier New", monospace;
+    letter-spacing: 0.3px;
+    font-weight: 400;
+  }
+
+  /* 移除 .tooltip-nsfw 样式 */
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    width: 10px;
+    height: 10px;
+    background: rgba(44, 62, 80, 0.98);
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+  }
+}
+
+.tooltip-enter-active,
+.tooltip-leave-active {
+  transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
+}
+
+.tooltip-enter-from {
+  opacity: 0;
+  transform: translateX(-50%) translateY(-5px);
+}
+
+.tooltip-leave-to {
+  opacity: 0;
+  transform: translateX(-50%) translateY(-5px);
+}

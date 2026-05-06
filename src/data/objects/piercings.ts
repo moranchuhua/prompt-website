@@ -1,0 +1,68 @@
+import type { PromptItem } from '../../types';
+
+export const items: PromptItem[] = [
+  // 主要
+  { chinese: "穿刺", english: "piercing" },
+  { chinese: "穿透衣物的穿刺", english: "piercing through clothes" },
+  // 形状
+  { chinese: "珠形穿刺", english: "barbell piercing" },
+  { chinese: "环形穿刺", english: "ring piercing" },
+  { chinese: "十字形穿刺", english: "cross piercing" },
+  { chinese: "翼形穿刺", english: "wing-shaped piercing" },
+  { chinese: "工业穿刺", english: "industrial piercing" },
+  { chinese: "尖刺耳饰", english: "spiked ear piercing" },
+  { chinese: "环形耳饰", english: "hoop earrings" },
+  { chinese: "耳钉", english: "stud earrings" },
+  // 头部和面部穿刺
+  { chinese: "耳部穿刺", english: "ear piercing:" },
+  { chinese: "工业耳钉", english: "industrial piercing" },
+  { chinese: "耳链", english: "ear chain" },
+  { chinese: "耳扩", english: "plug (piercing)" },
+  { chinese: "动物耳穿刺", english: "animal ear piercing" },
+  { chinese: "眉钉", english: "eyebrow piercing" },
+  { chinese: "眉下钉", english: "anti-eyebrow piercing" },
+  { chinese: "眼睑穿刺", english: "eyelid piercing" },
+  { chinese: "唇钉", english: "lip piercing" },
+  { chinese: "唇下钉", english: "labret piercing" },
+  { chinese: "颈部穿刺", english: "neck piercing" },
+  { chinese: "鼻钉", english: "nose piercing" },
+  { chinese: "鼻梁钉", english: "bridge piercing" },
+  { chinese: "舌钉", english: "tongue piercing" },
+  // 身体穿刺
+  { chinese: "乳晕穿刺", english: "areola piercing", nsfw: true },
+  { chinese: "背部穿刺", english: "back piercing" },
+  { chinese: "束身穿刺", english: "corset piercing", nsfw: true },
+  { chinese: "锁骨穿刺", english: "collarbone piercing" },
+  { chinese: "脐钉", english: "navel piercing" },
+  { chinese: "乳头穿刺", english: "nipple piercing", nsfw: true },
+  { chinese: "乳头棒", english: "nipple bar", nsfw: true },
+  { chinese: "乳头链", english: "nipple chain", nsfw: true },
+  { chinese: "乳头锁", english: "nipple lock", nsfw: true },
+  { chinese: "乳头环", english: "nipple rings", nsfw: true },
+  { chinese: "乳头扩张器", english: "nipple stretcher", nsfw: true },
+  { chinese: "乳头饰品", english: "nipple jewelry", nsfw: true },
+  { chinese: "翼形穿刺", english: "wing piercing", nsfw: true },
+  // 女性生殖器穿刺
+  { chinese: "阴部穿刺", english: "pussy piercing", nsfw: true },
+  { chinese: "阴蒂穿刺", english: "clitoris piercing", nsfw: true },
+  { chinese: "阴蒂环", english: "clitoris ring", nsfw: true },
+  { chinese: "阴唇穿刺", english: "labia piercing", nsfw: true },
+  { chinese: "阴唇系带穿刺", english: "fourchette piercing", nsfw: true },
+  { chinese: "阴部饰品", english: "pussy jewelry", nsfw: true },
+  // 男性生殖器穿刺
+  { chinese: "阴茎穿刺", english: "penis piercing", nsfw: true },
+  { chinese: "龟头横穿", english: "ampallang", nsfw: true },
+  { chinese: "龟头冠穿刺", english: "dydoe", nsfw: true },
+  { chinese: "包皮穿刺", english: "foreskin piercing", nsfw: true },
+  { chinese: "系带穿刺", english: "frenulum piercing", nsfw: true },
+  { chinese: "阴茎根部穿刺", english: "lorum piercing", nsfw: true },
+  { chinese: "王子钉", english: "prince albert", nsfw: true },
+  { chinese: "会阴穿刺", english: "perineum piercing", nsfw: true },
+  { chinese: "阴囊穿刺", english: "scrotum piercing", nsfw: true },
+  // 其他
+  { chinese: "珠环", english: "captive bead ring" },
+  { chinese: "链接穿刺", english: "linked piercing" },
+  { chinese: "平行穿刺", english: "parallel piercings" },
+  // 另见
+  { chinese: "耳饰", english: "earrings" },
+];

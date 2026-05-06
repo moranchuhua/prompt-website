@@ -1,0 +1,133 @@
+/* src/components/styles/enhanced-tooltip.scss */
+
+.enhanced-tooltip {
+  position: absolute;
+  background: rgba(44, 62, 80, 0.98);
+  backdrop-filter: blur(8px);
+  color: white;
+  padding: 12px 18px;
+  border-radius: 16px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  box-shadow: 0 15px 30px -8px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  z-index: 9999;
+  pointer-events: none;
+  max-width: 350px;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  /* 向上箭头 */
+  &::before {
+    content: "";
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    width: 12px;
+    height: 12px;
+    background: rgba(44, 62, 80, 0.98);
+    border-left: 1px solid rgba(255, 255, 255, 0.15);
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .tooltip-header {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .tooltip-label {
+    color: #f4c542;
+    font-weight: 600;
+    font-size: 0.85rem;
+    opacity: 0.9;
+    min-width: 40px;
+  }
+
+  .tooltip-text {
+    font-family: 'Courier New', monospace;
+    letter-spacing: 0.3px;
+    font-weight: 400;
+    word-break: break-word;
+    line-height: 1.4;
+  }
+
+  .tooltip-source {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    font-size: 0.85rem;
+  }
+
+  .source-label {
+    color: #8c9db2;
+    font-weight: 500;
+    min-width: 40px;
+  }
+
+  .source-text {
+    color: #a0b8d0;
+    font-weight: 400;
+    word-break: break-word;
+  }
+
+  .tooltip-nsfw-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: #c03c3c;
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 30px;
+    border: 2px solid white;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* 工具提示动画 */
+.tooltip-enter-active,
+.tooltip-leave-active {
+  transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
+}
+
+.tooltip-enter-from {
+  opacity: 0;
+  transform: translateX(-50%) translateY(-5px);
+}
+
+.tooltip-leave-to {
+  opacity: 0;
+  transform: translateX(-50%) translateY(-5px);
+}
+
+/* 暗色主题适配 */
+@media (prefers-color-scheme: dark) {
+  .enhanced-tooltip {
+    background: rgba(30, 40, 50, 0.98);
+    
+    &::before {
+      background: rgba(30, 40, 50, 0.98);
+    }
+  }
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+  .enhanced-tooltip {
+    max-width: 280px;
+    padding: 10px 14px;
+    font-size: 0.85rem;
+
+    .tooltip-label,
+    .source-label {
+      min-width: 35px;
+    }
+  }
+}

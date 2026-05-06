@@ -1,0 +1,302 @@
+/* src/components/styles/ActionBar.scss */
+.action-bar {
+  display: flex;
+  gap: 18px;
+  justify-content: flex-end;
+  flex-shrink: 0;
+  margin-top: 5px;
+  position: relative;
+  flex-wrap: wrap;
+}
+
+.action-btn {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  padding: 0 16px;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 550;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+  min-width: 120px;
+  height: 48px;
+  text-align: center;
+  line-height: 1;
+  white-space: nowrap;
+
+  .btn-text {
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    display: inline-block;
+  }
+
+  &:hover {
+    background: white;
+    transform: translateY(-3px);
+    box-shadow: 0 16px 28px -12px #2c3e50;
+    border-color: #b7cfec;
+  }
+
+  &:active {
+    transform: translateY(-1px);
+  }
+
+  /* 复制英文按钮 */
+  &.copy-btn {
+    background: #e8f0fe;
+    color: #1e2e42;
+
+    &.copy-success {
+      background: #4caf50;
+      color: white;
+      border-color: #45a049;
+
+      &:hover {
+        background: #45a049;
+      }
+    }
+  }
+
+  /* 复制中文按钮 */
+  &.copy-chinese-btn {
+    background: #fff3e0;
+    color: #1e2e42;
+
+    &.copy-success {
+      background: #4caf50;
+      color: white;
+      border-color: #45a049;
+
+      &:hover {
+        background: #45a049;
+      }
+    }
+  }
+}
+
+/* 清空按钮组 */
+.clear-group {
+  display: inline-flex;
+  gap: 12px;
+  position: relative;
+}
+
+/* 清空按钮 */
+.clear-btn {
+  background: #ffeae5;
+  color: #1e2e42;
+  min-width: 120px;
+  height: 48px;
+  font-size: 1rem;
+  padding: 0 20px;
+  margin: 0;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 50px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  cursor: pointer;
+
+  .btn-text {
+    white-space: nowrap;
+    display: inline-block;
+  }
+
+  &:hover {
+    background: #ffdbd2;
+    transform: translateY(-3px);
+    box-shadow: 0 16px 28px -12px #2c3e50;
+    border-color: #b7cfec;
+  }
+
+  &:active {
+    transform: translateY(-1px);
+  }
+}
+
+/* 撤销按钮 - 与清空按钮高度完全相同 */
+.undo-btn {
+  background: #e0e7ff;
+  color: #1e2e42;
+  min-width: 120px;
+  height: 48px;
+  font-size: 1rem;
+  padding: 0 20px;
+  margin: 0;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 50px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  opacity: 0.5;
+  cursor: not-allowed;
+  white-space: nowrap;
+
+  .btn-text {
+    white-space: nowrap;
+    display: inline-block;
+  }
+
+  /* 可撤销状态 */
+  &.can-undo {
+    opacity: 1;
+    cursor: pointer;
+    background: #d1d9ff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+    &:hover {
+      background: #c2cdff;
+      transform: translateY(-3px);
+      box-shadow: 0 16px 28px -12px #2c3e50;
+      border-color: #b7cfec;
+    }
+
+    &:active {
+      transform: translateY(-1px);
+    }
+  }
+}
+
+/* 全局提示样式 */
+.global-toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(44, 62, 80, 0.95);
+  backdrop-filter: blur(8px);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 500;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 9999;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  animation: toast-slide-up 0.3s ease;
+  pointer-events: none;
+
+  .toast-icon {
+    font-size: 1.2rem;
+  }
+}
+
+/* 提示动画 */
+.toast-enter-active,
+.toast-leave-active {
+  transition: all 0.3s ease;
+}
+
+.toast-enter-from {
+  opacity: 0;
+  transform: translate(-50%, 20px);
+}
+
+.toast-leave-to {
+  opacity: 0;
+  transform: translate(-50%, -20px);
+}
+
+@keyframes toast-slide-up {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 20px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+/* 响应式调整 */
+@media (max-width: 1200px) {
+  .action-bar {
+    gap: 12px;
+  }
+
+  .action-btn,
+  .clear-btn,
+  .undo-btn {
+    min-width: 110px;
+    height: 46px;
+    font-size: 0.95rem;
+    padding: 0 16px;
+  }
+}
+
+@media (max-width: 992px) {
+  .action-bar {
+    gap: 10px;
+  }
+
+  .action-btn,
+  .clear-btn,
+  .undo-btn {
+    min-width: 105px;
+    height: 44px;
+    font-size: 0.9rem;
+    padding: 0 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .action-bar {
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .action-btn,
+  .clear-btn,
+  .undo-btn {
+    min-width: 100px;
+    height: 42px;
+    font-size: 0.85rem;
+    padding: 0 12px;
+  }
+
+  .global-toast {
+    bottom: 20px;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 620px) {
+  .action-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .action-btn {
+    width: 100%;
+    min-width: auto;
+    height: 44px;
+  }
+
+  .clear-group {
+    width: 100%;
+    display: flex;
+    gap: 8px;
+  }
+
+  .clear-btn,
+  .undo-btn {
+    flex: 1;
+    width: auto;
+    min-width: auto;
+  }
+}

@@ -1,0 +1,93 @@
+/* src/components/styles/LeftPanel.scss */
+.left-panel {
+  width: 220px;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(8px);
+  border-right: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 32px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.03);
+}
+
+.main-btn-group {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.primary-btn {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(8px);
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  color: #1e2b3a;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 14px 0;
+  border-radius: 60px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px -8px rgba(0, 0, 0, 0.15);
+  transition: all 0.25s cubic-bezier(0.2, 0, 0, 1);
+  width: 100%;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  .btn-icon {
+    font-size: 1.3rem;
+    transition: transform 0.2s ease;
+  }
+
+  .btn-label {
+    letter-spacing: 1px;
+  }
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.95);
+    border-color: #ffffff;
+    transform: scale(1.02);
+    box-shadow: 0 16px 28px -10px #2c3e50;
+
+    .btn-icon {
+      transform: scale(1.1);
+    }
+  }
+
+  &.active {
+    background: #2c3e50;
+    color: white;
+    border-color: #f4c542;
+    box-shadow: 0 0 0 3px rgba(244, 197, 66, 0.3), 0 12px 24px -10px #1a2632;
+  }
+
+  /* NSFW 按钮样式 - 只在 NSFW 开启时显示红色底色 */
+  &.nsfw-btn {
+    background: rgba(255, 220, 220, 0.9);
+    border-color: rgba(255, 150, 150, 0.5);
+
+    &:hover {
+      background: rgba(255, 200, 200, 0.95);
+    }
+
+    &.active {
+      background: #c03c3c;
+      color: white;
+      border-color: #ff8a8a;
+    }
+  }
+}
+
+/* 移除 .nsfw-hint 样式 */
+
+.footer-hint {
+  margin-top: auto;
+  font-size: 0.85rem;
+  color: #5f6f82;
+  text-align: center;
+  opacity: 0.7;
+  padding: 16px 0 8px;
+  border-top: 1px dashed rgba(120, 140, 170, 0.3);
+}
