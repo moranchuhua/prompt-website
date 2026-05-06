@@ -18,7 +18,7 @@ COPY . .
 RUN npm run build
 
 # 阶段2: 生产阶段
-FROM nginx:latest AS production
+FROM nginx:alpine
 
 # 安装 curl 用于健康检查
 RUN apk add --no-cache curl
