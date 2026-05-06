@@ -21,7 +21,9 @@ RUN npm run build
 FROM nginx:alpine
 
 # 安装 curl 用于健康检查
-RUN apk add --no-cache curl
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories && \
+    apk update && \
+    apk add --no-cache curl
 
 # 复制构建产物到 nginx 目录
 COPY --from=builder /app/dist /usr/share/nginx/html
