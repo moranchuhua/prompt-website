@@ -1,4 +1,5 @@
 /* src/components/styles/LeftPanel.scss */
+
 .left-panel {
   width: 220px;
   background: rgba(255, 255, 255, 0.6);
@@ -80,14 +81,61 @@
   }
 }
 
-/* 移除 .nsfw-hint 样式 */
+/* 底部区域 - 包含提示和 GitHub 链接 */
+.footer-section {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 1px dashed rgba(120, 140, 170, 0.3);
+}
 
 .footer-hint {
-  margin-top: auto;
-  font-size: 0.85rem;
-  color: #5f6f82;
+  font-size: 0.75rem;
+  color: #8c9db2;
   text-align: center;
   opacity: 0.7;
-  padding: 16px 0 8px;
-  border-top: 1px dashed rgba(120, 140, 170, 0.3);
+  letter-spacing: 0.3px;
+}
+
+/* GitHub 链接样式 - 小字体，图标+文字 */
+.github-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #5f6f82;
+  padding: 6px 12px;
+  border-radius: 30px;
+  transition: all 0.2s ease;
+  background: rgba(255, 255, 255, 0.4);
+  width: fit-content;
+  margin: 0 auto;
+
+  .github-icon {
+    font-size: 0.9rem;
+    transition: transform 0.2s ease;
+  }
+
+  .github-text {
+    letter-spacing: 0.3px;
+  }
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.8);
+    color: #24292e;
+    transform: translateY(-1px);
+
+    .github-icon {
+      transform: scale(1.1);
+    }
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
 }
