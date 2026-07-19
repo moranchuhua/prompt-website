@@ -307,7 +307,7 @@ const showToast = (message: string, type: "success" | "error" = "success") => {
   }, 2000);
 };
 
-// 复制到剪贴板
+// 复制到剪贴板（含 fallback 支持 HTTP 环境）
 const copyToClipboard = async (text: string) => {
   if (!text) {
     showToast("没有内容可复制", "error");
@@ -317,8 +317,28 @@ const copyToClipboard = async (text: string) => {
   try {
     await navigator.clipboard.writeText(text);
     showToast("已复制到剪贴板");
-  } catch (err) {
-    showToast("复制失败", "error");
+  } catch {
+    // fallback: 使用传统的 execCommand 方式（支持 HTTP 环境）
+    const textarea = document.createElement("textarea");
+    textarea.value = text;
+    textarea.style.position = "fixed";
+    textarea.style.opacity = "0";
+    textarea.style.pointerEvents = "none";
+    document.body.appendChild(textarea);
+    textarea.select();
+
+    try {
+      const success = document.execCommand("copy");
+      if (success) {
+        showToast("已复制到剪贴板");
+      } else {
+        throw new Error("Copy failed");
+      }
+    } catch {
+      showToast("复制失败", "error");
+    } finally {
+      document.body.removeChild(textarea);
+    }
   }
 };
 
