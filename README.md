@@ -368,4 +368,6 @@ newWeight = Math.max(0.1, Math.min(5.0, newWeight));
 
 ## 演示图
 
+体验地址：https://prompt.refrain.com.cn
+
 ![](web.png)
